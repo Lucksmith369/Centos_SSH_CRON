@@ -1,0 +1,13 @@
+I made this two Scripts because i run in some troubles with my ssh connection after i urgently wipped my Iptables and after
+my SSH service is crashed.
+
+If you want to Secure your Server you can use this.
+
+It will add 2 Cronjobs to the System what check every Minut if SSH Service is running and if SSH Ports are Open.
+
+But I recommend to exchange port 22 for another port
+
+git clone https://github.com/Lucksmith369/Centos_SSH_CRON
+cd Centos_SSH_CRON
+chmod +x install.sh
+./install.sh
