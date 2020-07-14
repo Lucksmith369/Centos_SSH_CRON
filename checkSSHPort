@@ -1,0 +1,14 @@
+#!/bin/bash
+
+iptables -C OUTPUT -p tcp --dport 22 -j ACCEPT
+status1=$?
+iptables -C INPUT -p tcp --sport 22 -j ACCEPT
+status2=$?
+if [ "$status1" == 0 -a "$status2" == 0 ]; then
+    echo "OK"
+else
+    echo "fail"
+    iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT
+    iptables -A INPUT -p tcp --sport 22 -j ACCEPT
+    service iptables save
+fi
